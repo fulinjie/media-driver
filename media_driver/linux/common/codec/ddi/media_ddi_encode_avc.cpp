@@ -444,11 +444,11 @@ VAStatus DdiEncodeAvc::ParseMiscParamQuantization(void *data)
         {
             seqParams->Trellis |= trellisEnabledI;
         }
-        if (vaEncMiscParamQuantization->quantization_flags.bits.enable_trellis_P)
+        else if (vaEncMiscParamQuantization->quantization_flags.bits.enable_trellis_P)
         {
             seqParams->Trellis |= trellisEnabledP;
         }
-        if (vaEncMiscParamQuantization->quantization_flags.bits.enable_trellis_B)
+        else if (vaEncMiscParamQuantization->quantization_flags.bits.enable_trellis_B)
         {
             seqParams->Trellis |= trellisEnabledB;
         }
@@ -561,11 +561,11 @@ VAStatus DdiEncodeAvc::ParseMiscParamQualityLevel(void *data)
     }
 
 #ifdef _FULL_OPEN_SOURCE
-    if(m_encodeCtx->targetUsage >= 1 && m_encodeCtx->targetUsage <= 2)
+    if (m_encodeCtx->targetUsage >= 1 && m_encodeCtx->targetUsage <= 2)
     {
         m_encodeCtx->targetUsage = 4;
     }
-    else if(m_encodeCtx->targetUsage >= 3 &&m_encodeCtx->targetUsage <= 5)
+    else if (m_encodeCtx->targetUsage >= 3 &&m_encodeCtx->targetUsage <= 5)
     {
         m_encodeCtx->targetUsage = 7;
     }
